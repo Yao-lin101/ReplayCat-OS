@@ -18,8 +18,6 @@ smtx/
 │   ├── Model.xcdatamodeld  		# Core Data 模型
 │   ├── Models/                  	# 数据模型
 │   ├── Navigation/             	# 导航相关
-│   ├── Services/              		# 服务层
-│   ├── Store/                		# 数据存储
 │   ├── Utilities/           		# 工具类
 │   ├── ViewModels/         		# 视图模型
 │   ├── Views/             			# 视图组件

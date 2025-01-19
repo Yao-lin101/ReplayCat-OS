@@ -218,47 +218,6 @@ class TemplateListUITests: XCTestCase {
 }
 ```
 
-### 2. 用户流程测试
-
-```swift
-class UserFlowUITests: XCTestCase {
-    private var app: XCUIApplication!
-    
-    override func setUp() {
-        super.setUp()
-        app = XCUIApplication()
-        app.launchArguments = ["UITesting"]
-        app.launch()
-    }
-    
-    func test_loginAndCreateTemplate() {
-        // 1. 登录
-        login()
-        
-        // 2. 创建模板
-        createTemplate()
-        
-        // 3. 验证模板列表
-        XCTAssertTrue(app.tables.cells.count > 0)
-    }
-    
-    private func login() {
-        app.textFields["邮箱"].tap()
-        app.textFields["邮箱"].typeText("test@example.com")
-        
-        app.secureTextFields["密码"].tap()
-        app.secureTextFields["密码"].typeText("password")
-        
-        app.buttons["登录"].tap()
-    }
-    
-    private func createTemplate() {
-        app.buttons["创建模板"].tap()
-        // 填写模板信息
-        app.buttons["保存"].tap()
-    }
-}
-```
 
 ## 性能测试
 

@@ -9,7 +9,6 @@ SMTX 是一个专为语言学习者设计的 iOS 应用，帮助用户创建、�
 - **状态管理**: Combine
 - **数据持久化**: CoreData
 - **音频处理**: AVFoundation
-- **网络层**: URLSession + Combine
 - **图片缓存**: NSCache + FileManager
 
 ## 系统要求
@@ -20,38 +19,20 @@ SMTX 是一个专为语言学习者设计的 iOS 应用，帮助用户创建、�
 
 ## 核心功能模块
 
-### 1. 用户系统
-- 邮箱注册和登录
-- JWT Token 认证
-- 个人资料管理
-- 详见: [用户系统架构](./architecture/auth.md)
-
-### 2. 语言分区管理
+### 1. 语言分区管理
 - 创建和管理语言分区
 - 分区权限控制
 - 详见: [语言分区设计](./architecture/language-section.md)
 
-### 3. 模板系统
+### 2. 模板系统
 - 创建和编辑模板
 - 时间轴管理
 - 详见: [模板系统设计](./architecture/template.md)
 
-### 4. 录音功能
+### 3. 录音功能
 - 录音和播放
 - 波形显示
 - 详见: [录音系统设计](./architecture/recording.md)
-
-### 5. 网络同步
-- 云端数据同步
-- 离线支持
-- 详见: [网络架构](./architecture/network.md)
-
-## API 文档
-
-- [API 概览](./api/overview.md)
-- [认证 API](./api/auth.md)
-- [模板 API](./api/template.md)
-- [用户 API](./api/user.md)
 
 ## 开发指南
 
