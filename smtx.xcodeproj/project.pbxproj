@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		9181B2992D22468900911CE8 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 9181B2982D22468900911CE8 /* ZIPFoundation */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		91D4BCE52D1988ED00C69284 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -56,7 +52,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9181B2992D22468900911CE8 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +112,6 @@
 			);
 			name = smtx;
 			packageProductDependencies = (
-				9181B2982D22468900911CE8 /* ZIPFoundation */,
 			);
 			productName = smtx;
 			productReference = 91D4BCCF2D1988EC00C69284 /* smtx.app */;
@@ -203,7 +197,6 @@
 			mainGroup = 91D4BCC62D1988EC00C69284;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				9181B2972D22468900911CE8 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 91D4BCD02D1988EC00C69284 /* Products */;
@@ -581,25 +574,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9181B2972D22468900911CE8 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.19;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9181B2982D22468900911CE8 /* ZIPFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9181B2972D22468900911CE8 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
-			productName = ZIPFoundation;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91D4BCC72D1988EC00C69284 /* Project object */;
 }
