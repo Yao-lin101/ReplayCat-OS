@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23605" systemVersion="24C101" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Template" representedClassName="Template" syncable="YES" codeGenerationType="class">
+        <!-- Metadata -->
+        <attribute name="id" attributeType="String"/>
+        <attribute name="type" attributeType="String" defaultValueString="localTextImage"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="coverUpdatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="version" attributeType="String" defaultValueString="1.0"/>
+        
+        <!-- Cloud Sync -->
+        <attribute name="cloudUid" optional="YES" attributeType="String"/>
+        <attribute name="cloudVersion" optional="YES" attributeType="String"/>
+        <attribute name="lastSyncedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        
+        <!-- Template Data -->
+        <attribute name="title" attributeType="String"/>
+        <attribute name="coverImage" attributeType="Binary"/>
+        <attribute name="totalDuration" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="NSArray"/>
+        
+        <!-- Relationships -->
+        <relationship name="timelineItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TimelineItem" inverseName="template" inverseEntity="TimelineItem"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Record" inverseName="template" inverseEntity="Record"/>
+        <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocalLanguageSection" inverseName="templates" inverseEntity="LocalLanguageSection"/>
+    </entity>
+    
+    <entity name="TimelineItem" representedClassName="TimelineItem" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="timestamp" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="script" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="imageUpdatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="timelineItems" inverseEntity="Template"/>
+        <relationship name="videoTemplate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VideoTemplate" inverseName="timelineItems" inverseEntity="VideoTemplate"/>
+        
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    
+    <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="audioData" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="records" inverseEntity="Template"/>
+        <relationship name="videoTemplate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VideoTemplate" inverseName="records" inverseEntity="VideoTemplate"/>
+
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    
+    <entity name="LocalLanguageSection" representedClassName="LocalLanguageSection" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="cloudSectionId" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" attributeType="Date" usesScalarValueType="NO"/>
+        
+        <relationship name="templates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Template" inverseName="section" inverseEntity="Template"/>
+        <relationship name="videoTemplates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="VideoTemplate" inverseName="section" inverseEntity="VideoTemplate"/>
+
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    
+    <entity name="VideoTemplate" representedClassName="VideoTemplate" syncable="YES" codeGenerationType="class">
+        <!-- Metadata -->
+        <attribute name="id" attributeType="String"/>
+        <attribute name="type" attributeType="String" defaultValueString="localVideo"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="coverUpdatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="version" attributeType="String" defaultValueString="1.0"/>
+        
+        <!-- Cloud Sync -->
+        <attribute name="cloudUid" optional="YES" attributeType="String"/>
+        <attribute name="cloudVersion" optional="YES" attributeType="String"/>
+        <attribute name="lastSyncedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        
+        <!-- Template Data -->
+        <attribute name="title" attributeType="String"/>
+        <attribute name="videoUrlOriginal" attributeType="String"/>
+        <attribute name="videoUrlLocal" attributeType="String"/>
+        <attribute name="videoInfo" attributeType="String"/>
+        <attribute name="coverImage" attributeType="Binary"/>
+        <attribute name="totalDuration" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="NSArray"/>
+        
+        <!-- Relationships -->
+        <relationship name="timelineItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TimelineItem" inverseName="videoTemplate" inverseEntity="TimelineItem"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Record" inverseName="videoTemplate" inverseEntity="Record"/>
+        <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocalLanguageSection" inverseName="videoTemplates" inverseEntity="LocalLanguageSection"/>
+    </entity>
+</model>
